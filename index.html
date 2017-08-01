@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>vue.js application</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  
+<div id="app">
+  <button class="initial" @click="initial">插入資料</button>
+  <transition-group class="timeline" tag="ul" name="fade">
+    <li class="dialog_wrapper" v-for="l,id in logs" :key="l" :style="{'transition-delay':id/2+'s'}">
+      <div class="dialog">
+        <h3 class="year">{{l.year}}
+          <div class="decor_bar"></div>
+        </h3>
+        <ul class="content">
+          <li v-for="c in l.content">{{c.tag}}</li>
+        </ul>
+      </div>
+    </li>
+  </transition-group>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

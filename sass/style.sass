@@ -1,0 +1,133 @@
+*,*:before,*:after
+  font-family: 'Roboto', sans-serif
+  // border: solid 1px black 
+  margin-top: 20px
+
+$color_green: #79E786
+$color_blue: #151DF4
+$color_white: #FFFFFF
+$color_yellow: #F4A373
+$color_black: #554236
+
+//預設模組//
+@mixin size($w,$h: $w)
+  width: $w
+  height: $h
+
+body
+  background-color: $color_blue
+  +size(100%)
+#app
+  display: flex
+  align-items: center
+  justify-content: center
+.timeline
+  margin-top: 30px
+  height: 100vh
+  width: 6px
+  background-color: rgba($color_white,1)
+  padding-top: 50px
+
+.dialog_wrapper
+  height: 160px
+  position: relative
+  transform: translateY(0px)
+  &:before
+    content: ""
+    display: block
+    +size(20px)
+    border: solid 5px white
+    border-radius: 50px
+    transform: translateX(-40%)
+  &:nth-child(2n+1)
+    transition-origin: 0% 20px
+    .dialog
+      left: 40px
+      &:before
+        left: -10px
+  &:nth-child(2n)
+    transition-origin: 100% 20px
+    .dialog
+      right: 40px
+      left: initial
+ 
+.dialog
+  background-color: #fff
+  padding: 15px 20px
+  cursor: pointer
+  font-family: 'Roboto', sans-serif
+  
+  border-radius: 5px
+  box-shadow: 10px 10px $color_black
+  width: 250px
+  position: absolute
+  left: 0
+  transition: 0.5s
+  top: -10px
+  
+  
+  
+  
+  &:before
+    content: ""
+    diaplay: block
+    +size(20px)
+    border-radius: 3px
+    position: absolute
+    right: -10px
+    background-color: $color_white
+    transform: rotate(45deg)
+  &:hover
+    transform: translate(-10px,-10px)
+    box-shadow: 20px 20px $color_black
+.year
+  font-size: 36px
+  font-weight: 700
+  margin-bottom: 10px
+  letter-spacing: 2px
+
+  @keyframes rain_in
+    0%
+      transform: translateY(-50px)
+      opacity: 0
+    100%
+      transform: translateY(0px)
+      opacity: 1
+  
+  .decor_bar
+    &,&:before,&:after
+      content: ""
+      +size(8px,30px)
+      background-color: yellow
+      border-radius: 5px
+      position: absolute
+      top: -35px
+      left: 30px
+      animation: rain_in 0.5s 0.5s both
+    &:before
+      background-color: $color_green
+      top: -30px
+      left: -20px
+      animation-duration: 1s
+      animation-delay: 0.5s
+    &:after
+      background-color: #D75455
+      top: -55px
+      left: 20px
+      animation-duration: 3s
+      animation-delay: 0.5s
+button.initial
+  position: fixed
+  right: 50px
+  bottom: 50px
+  font-size: 15px
+  background-color: black
+  color: white
+  font-family: 'Roboto', sans-serif
+.fade-enter-active, .fade-leave-active 
+  transition: .5s
+  transform: translateY(0px)
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ 
+  opacity: 0
+  transform: translateY(50px) rotate(10deg)

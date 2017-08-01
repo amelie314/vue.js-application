@@ -1,0 +1,11 @@
+#app
+  button.initial(@click="initial") 插入資料
+  transition-group.timeline(tag="ul",name="fade")
+    li.dialog_wrapper(v-for="l,id in logs",:key="l",:style="{'transition-delay':id/2+'s'}")
+      .dialog
+        h3.year {{l.year}}
+            .decor_bar
+        ul.content
+          li(v-for="c in l.content") {{c.tag}}
+        
+      
