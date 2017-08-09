@@ -3,11 +3,12 @@
   // border: solid 1px black 
   margin-top: 20px
 
-$color_green: #79E786
-$color_blue: #151DF4
+$color_deeppink: #F3ABA6
+$color_white: #ffffff
+$color_gray:  #999898
+$font_base_size: 10px
+$color_pink: #F7DBDF
 $color_white: #FFFFFF
-$color_yellow: #F4A373
-$color_black: #554236
 
 //預設模組//
 @mixin size($w,$h: $w)
@@ -15,7 +16,7 @@ $color_black: #554236
   height: $h
 
 body
-  background-color: $color_blue
+  background-color: $color_pink
   +size(100%)
 #app
   display: flex
@@ -32,6 +33,7 @@ body
   height: 160px
   position: relative
   transform: translateY(0px)
+  color: $color_gray
   &:before
     content: ""
     display: block
@@ -58,7 +60,7 @@ body
   font-family: 'Roboto', sans-serif
   
   border-radius: 5px
-  box-shadow: 10px 10px $color_black
+  box-shadow: 10px 10px $color_pink
   width: 250px
   position: absolute
   left: 0
@@ -79,7 +81,7 @@ body
     transform: rotate(45deg)
   &:hover
     transform: translate(-10px,-10px)
-    box-shadow: 20px 20px $color_black
+    box-shadow: 20px 20px $color_deeppink
 .year
   font-size: 36px
   font-weight: 700
@@ -98,14 +100,14 @@ body
     &,&:before,&:after
       content: ""
       +size(8px,30px)
-      background-color: yellow
+      background-color: $color_deeppink
       border-radius: 5px
       position: absolute
       top: -35px
       left: 30px
       animation: rain_in 0.5s 0.5s both
     &:before
-      background-color: $color_green
+      background-color: $color_white
       top: -30px
       left: -20px
       animation-duration: 1s
@@ -121,8 +123,9 @@ button.initial
   right: 50px
   bottom: 50px
   font-size: 15px
-  background-color: black
-  color: white
+  background-color: $color_deeppink
+  color: $color_white
+  border: 1px dashed
   font-family: 'Roboto', sans-serif
 .fade-enter-active, .fade-leave-active 
   transition: .5s
